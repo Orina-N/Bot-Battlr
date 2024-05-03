@@ -16,10 +16,14 @@
   background-color: #e5e5e5;
 }
 
-.favorites{
-  height: 400px;
+.favorites-carrier{
+  height: 500px;
   width: 100%; 
   background-color: #bde061;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
 }
 
 .details-container{
