@@ -3,10 +3,46 @@
 .card-container{
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
 }
 
 .card{
-  border: 1px solid;
-  width:250px;
+  border: 1px solid #e5e5e5;
+  width:300px;
 }
 
+.card-img-top{
+  background-color: #e5e5e5;
+}
+
+.favorites{
+  height: 400px;
+  width: 100%; 
+  background-color: #bde061;
+}
+
+.details-container{
+  border:1px solid #e5e5e5;
+  width: 500px;
+  border-radius: 10px;
+}
+
+.image{
+  background-color: #e5e5e5;
+  border-radius: 40%;
+}
+
+.stats{
+  display: flex;
+}
+
+.stat{
+  padding-left: 10px;
+}
+
+.buttons{
+  padding: 5px;
+  margin:5px;
+  border-radius: 5px;
+}
