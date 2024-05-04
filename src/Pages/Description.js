@@ -13,6 +13,15 @@ function Description() {
         .then(data => setBots(data))
     }, [botId])
 
+    function handleDelete (id) {
+        fetch(`https://robot-data-base.onrender.com/bots/${id}`,{
+            method:"DELETE"
+        })
+        .then(() => {
+            setBots({})
+        })
+    }
+
     function handleEnlist() {
         fetch("https://moviedatabase-g11e.onrender.com/favoriteBots", {
             method: "POST",
@@ -43,6 +52,7 @@ function Description() {
     // Conditionally render the enlist button
     const enlist = bots.id && <button onClick={handleEnlist} className="buttons btn btn-success ">Enlist</button>
     const goHome = <button onClick={goBack} className="buttons btn btn-warning">Go Back</button>
+    const eliminate = <button onClick={() => handleDelete(bots.id)} className="buttons btn btn-danger">Delete</button>
     return (
         <>
             <Favorite />
@@ -64,7 +74,7 @@ function Description() {
                         <div>
                             {enlist}
                             {goHome}
-                            <button className="buttons btn btn-danger">Delete</button>
+                            {eliminate}
                         </div>
                     </div>
                 </div>
