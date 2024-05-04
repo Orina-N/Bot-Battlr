@@ -9,6 +9,15 @@ function Favorite () {
         .then(data => setFavorites(data))
     },[favorites])
 
+    function handleDelete (id) {
+        fetch(`https://moviedatabase-g11e.onrender.com/favoriteBots/${id}`,{
+            method:"DELETE"
+        })
+        .then(() => {
+            setFavorites(wasFavorite => wasFavorite.filter(favorite => favorite.id !== id));
+        })
+    }
+
     const renderFavorite = favorites.map(favorite => {
         //console.log(favorite);
         return (
@@ -18,6 +27,7 @@ function Favorite () {
                   <h5 className="card-title">{favorite.name}</h5>
                   <p className="card-text">{favorite.catchphrase}</p>
                   <Link to={`/description/${favorite.id}`} className="btn btn-primary">view</Link>
+                  <button onClick={() => handleDelete(favorite.id)} className="btn btn-danger">Delete</button>
                </div>
             </div>
         )

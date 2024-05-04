@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams,useNavigate } from "react-router-dom"
 import Favorite from "../components/Favorite"
 
 function Description() {
     const [bots, setBots] = useState({})
     const params = useParams()
     const botId = params.id
-
+    const navigate =useNavigate()
     useEffect(() => {
         fetch(`https://robot-data-base.onrender.com/bots/${botId}`)
         .then(res => res.json())
@@ -34,9 +34,15 @@ function Description() {
         })
     }
 
+    function goBack() {
+        //console.log('Navigating back...');
+        navigate("/");
+    }
+    
+
     // Conditionally render the enlist button
     const enlist = bots.id && <button onClick={handleEnlist} className="buttons btn btn-success ">Enlist</button>
-
+    const goHome = <button onClick={goBack} className="buttons btn btn-warning">Go Back</button>
     return (
         <>
             <Favorite />
@@ -57,7 +63,7 @@ function Description() {
                         </div>
                         <div>
                             {enlist}
-                            <button className="buttons btn btn-warning">Go Back</button>
+                            {goHome}
                             <button className="buttons btn btn-danger">Delete</button>
                         </div>
                     </div>
