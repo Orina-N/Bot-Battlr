@@ -1,21 +1,22 @@
 import { useEffect, useState } from "react"
-import { useParams,useNavigate } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import Favorite from "../components/Favorite"
 
 function Description() {
     const [bots, setBots] = useState({})
     const params = useParams()
     const botId = params.id
-    const navigate =useNavigate()
+    const navigate = useNavigate()
+
     useEffect(() => {
         fetch(`https://botsdb.onrender.com/bots/${botId}`)
         .then(res => res.json())
         .then(data => setBots(data))
     }, [botId])
 
-    function handleDelete (id) {
-        fetch(`https://botsdb.onrender.com/bots/${id}`,{
-            method:"DELETE"
+    function handleDelete(id) {
+        fetch(`https://botsdb.onrender.com/bots/${id}`, {
+            method: "DELETE"
         })
         .then(() => {
             setBots({})
@@ -44,15 +45,13 @@ function Description() {
     }
 
     function goBack() {
-        //console.log('Navigating back...');
-        navigate("/");
+        navigate("/")
     }
-    
 
-    // Conditionally render the enlist button
-    const enlist = bots.id && <button onClick={handleEnlist} className="buttons btn btn-success ">Enlist</button>
+    const enlist = bots.id && <button onClick={handleEnlist} className="buttons btn btn-success">Enlist</button>
     const goHome = <button onClick={goBack} className="buttons btn btn-warning">Go Back</button>
     const eliminate = <button onClick={() => handleDelete(bots.id)} className="buttons btn btn-danger">Delete</button>
+
     return (
         <>
             <Favorite />
