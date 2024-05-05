@@ -8,13 +8,13 @@ function Description() {
     const botId = params.id
     const navigate =useNavigate()
     useEffect(() => {
-        fetch(`https://robot-data-base.onrender.com/bots/${botId}`)
+        fetch(`https://botsdb.onrender.com/bots/${botId}`)
         .then(res => res.json())
         .then(data => setBots(data))
     }, [botId])
 
     function handleDelete (id) {
-        fetch(`https://robot-data-base.onrender.com/bots/${id}`,{
+        fetch(`https://botsdb.onrender.com/bots/${id}`,{
             method:"DELETE"
         })
         .then(() => {
@@ -23,7 +23,7 @@ function Description() {
     }
 
     function handleEnlist() {
-        fetch("https://moviedatabase-g11e.onrender.com/favoriteBots", {
+        fetch("https://botsdb.onrender.com/favorites", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

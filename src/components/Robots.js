@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 function Robots () {
   const [bots, setBots]= useState([])
   useEffect(() => {
-    fetch("https://robot-data-base.onrender.com/bots")
+    fetch("https://botsdb.onrender.com/bots")
     .then(res => res.json())
     .then(data => setBots(data))
   },[])

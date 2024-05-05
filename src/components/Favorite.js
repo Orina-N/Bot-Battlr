@@ -4,13 +4,13 @@ import { Link } from "react-router-dom"
 function Favorite () {
     const[favorites, setFavorites] = useState([])
     useEffect(()=>{
-        fetch("https://moviedatabase-g11e.onrender.com/favoriteBots")
+        fetch("https://botsdb.onrender.com/favorites")
         .then(res => res.json())
         .then(data => setFavorites(data))
     },[favorites])
 
     function handleDelete (id) {
-        fetch(`https://moviedatabase-g11e.onrender.com/favoriteBots/${id}`,{
+        fetch(`https://botsdb.onrender.com/favorites/${id}`,{
             method:"DELETE"
         })
         .then(() => {
