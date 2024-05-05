@@ -3,7 +3,7 @@ import Description from "./Pages/Description";
 
 const routes = [
     {
-        path:"/",
+        path:"/Bot-Battlr",
         element:<Home/>
     },
     {

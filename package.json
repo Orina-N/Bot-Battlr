@@ -1,7 +1,7 @@
 {
   "name": "bot-battlr",
   "version": "0.1.0",
-  "home":"https://Orina-N.github.io/Bot-Battlr",
+  "homepage":"https://Orina-N.github.io/Bot-Battlr",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
