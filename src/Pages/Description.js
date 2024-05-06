@@ -54,7 +54,7 @@ function Description() {
 
     // Function to navigate back to the home page
     function goBack() {
-        navigate("/")
+        navigate("/Bot-Battlr")
     }
 
     // Conditionally render enlist button if bot ID exists
